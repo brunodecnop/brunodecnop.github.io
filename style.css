@@ -1,0 +1,167 @@
+/* ===== CSS RESET & GLOBAL STYLES ===== */
+:root {
+    --sidebar-bg: #1a202c;
+    --main-bg: #f7fafc;
+    --text-light: #edf2f7;
+    --text-dark: #2d3748;
+    --accent-color: #a88a4c; /* Muted Gold */
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --header-font: 'Playfair Display', serif;
+    --body-font: 'Lato', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--body-font);
+    background-color: var(--main-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+h1, h2, h3 {
+    font-family: var(--header-font);
+    color: var(--accent-color);
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.75rem; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-bottom: 20px;}
+h3 { font-size: 1.25rem; margin-bottom: 10px; }
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--text-light);
+}
+
+ul { list-style-type: none; }
+main ul { list-style-type: disc; padding-left: 20px; }
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    width: 35%;
+    max-width: 400px;
+    background-color: var(--sidebar-bg);
+    color: var(--text-light);
+    padding: 40px;
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.sidebar h3 {
+    color: var(--accent-color);
+}
+
+.sidebar a {
+    color: var(--text-light);
+}
+
+.sidebar a:hover {
+    color: var(--accent-color);
+}
+
+.profile-section .name {
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.profile-section .title {
+    font-family: var(--body-font);
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: var(--text-light);
+}
+
+.contact-section, .skills-section, .languages-section {
+    margin-top: 40px;
+}
+
+.skills-section h4 {
+    color: #ffffff;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.skills-section p {
+    font-size: 0.9rem;
+}
+
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+    width: 65%;
+    margin-left: 35%;
+    padding: 40px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.card .date {
+    font-style: italic;
+    color: #718096;
+    margin-bottom: 10px;
+}
+
+/* ===== ANIMATIONS ===== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+    }
+    .sidebar {
+        position: relative;
+        width: 100%;
+        max-width: none;
+        height: auto;
+    }
+    .main-content {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    body { font-size: 14px; }
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.25rem; }
+    h3 { font-size: 1.1rem; }
+    .sidebar, .main-content { padding: 20px; }
+}
